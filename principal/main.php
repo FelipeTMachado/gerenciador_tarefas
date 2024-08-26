@@ -16,39 +16,20 @@
             <h2><a href="#">Logout</a></h2>
             <br>
             <ul class="quadrosAside">
-                <li><a href="#">Quadro teste11</a></li>
-                <li><a href="#">Quadro teste12</a></li>
-                <li><a href="#">Quadro teste13</a></li>
-                <li><a href="#">Quadro teste14</a></li>
-                <li><a href="#">Quadro teste15</a></li>
-                <li><a href="#">Quadro teste16</a></li>
-                <li><a href="#">Quadro teste17</a></li>
-                <li><a href="#">Quadro teste18</a></li>
+                <li><a href="#">nomeQuadro</a></li>
             </ul>
         </aside>
         <main>
             <div class="containerLista">
-                <ul>
-                    <li><ul>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                    </ul></li>
-                    <li><ul>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                    </ul></li>
-                    <li><ul>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                    </ul></li>
-                    <li><ul>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                        <li><a href="#">tarefa</a></li>
-                    </ul></li>
+                <ul class="lista">
+                    <li class="itemLista">
+                        <ul>
+                            <li><a href="#"><p>nomeTarefa</p>
+                                <p>dataTarefa</p>
+                                </a> 
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </main>
