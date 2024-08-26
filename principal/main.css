@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
+    font-family: "Roboto", sans-serif;
+    list-style-type: none;
     padding: 0px;
     margin: 0px;
 }
@@ -12,19 +16,40 @@ html, body {
     box-sizing: border-box;
 }
 
+.create {
+    background-color: #d2d2d2;
+    padding: 10px;
+    border: none;
+    border-radius: px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #585858;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #333; */
+    background-color: black;
+    height: 5vh;
+}
+
 .containerPrincipal {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
 }
 
 aside {
+    flex-direction: column;
+    display: flex;
+    border-right: 2px solid #d2d2d7;
     width: 20%;
-    border: 1px solid rgba(87, 87, 87, 0.4);
-    border-radius: 5px;
     padding: 20px;
     margin: 1%;
-    background-color: #f4f4f4;
+    align-items: center;
 }
 
 aside h1 {
@@ -32,14 +57,29 @@ aside h1 {
     margin-bottom: 20px;
 }
 
+.topContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px 40px 0px;
+    width: 100%;
+}
+
 aside h2 a {
+    background-color: rgba(180, 180, 180, 0.596);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
     color: #585858;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-aside h2 a:hover {
-    color: #333;
+/* aside h2 a:hover {
+    color: #ff9742;
+} */
+
+.quadrosAside {
+    width: 100%;
 }
 
 aside ul.quadrosAside {
@@ -49,15 +89,18 @@ aside ul.quadrosAside {
 }
 
 aside ul.quadrosAside li a {
-    color: #000;
+
+    width: 100%;
+    color: #49494b;
     text-decoration: none;
     display: block;
-    padding: 10px 0;
+    padding: 16px 0;
     transition: background-color 0.3s;
 }
 
 aside ul.quadrosAside li a:hover {
     background-color: #ddd;
+
 }
 
 main {
@@ -72,21 +115,23 @@ main {
     display: flex;
     align-items: start;
     height: 100%;
-    background-color: #a1a1a1;
+    /* background-color: #f5f5f7; */
+    border-radius: 15px;
     width: 100%;
-
+    min-width: 100%; /* Set a fixed height */
+    overflow-y: auto;
 }
 
 .containerLista {
     padding: 20px;
-    width: 20%;
-    border: 1px solid rgba(87, 87, 87, 0.4);
-    border-radius: 5px;
+    min-width: 20%;
+    /* border: 1px solid rgba(87, 87, 87, 0.096); */
+    border-radius: 15px;
     margin: 20px;
     max-height: 90%;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #f5f5f7;
 }
 
 .nomeLista {
@@ -105,11 +150,11 @@ main {
 } */
 
 .lista {
+    
     list-style-type: none;
     display: flex;
     justify-content: center;
     max-height: 90%; /* Set a fixed height */
-    border-radius: 5px;
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -118,20 +163,40 @@ main {
     width: 100%;
     background-color: #ffffff;
     color: white;
-    border: 1px solid rgba(87, 87, 87, 0.4);
-    border-radius: 5px;
+    background-color: #f5f5f7;
 }
 
 .itemTarefa {
     margin: 0px 0px 20px 0px;
-    background-color: #d6d6d6;
-    padding: 10px
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tarefa {
     list-style-type: none;
     padding: 0;
 }
+
+.itemTarefa p {
+    padding: 8px;
+}
+
+input[type="checkbox"] {
+    border: none;
+    width: 20px;  /* Define a largura do checkbox */
+    height: 20px; /* Define a altura do checkbox */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+
+input[type="checkbox"]:checked {
+    background-color: #a3a3a3; /* Muda a cor de fundo quando está marcado */
+    border-color: #a3a3a3; /* Muda a cor da borda quando está marcado */
+}
+
 
 .itemTarefa a {
     color: rgb(92, 92, 92);
@@ -144,5 +209,39 @@ main {
 }
 
 .active {
-    background-color: #9b9b9b;
+    background-color: #ff7300;
 }
+
+header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9fc;
+    border-bottom: 1px solid #6c6c6d52;
+  }
+
+  .nav-endItems {
+    margin-right: 20px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  nav ul {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      font-size: small;
+      padding-right: 20px;
+      justify-content: end;  
+  }
+
+  .li {
+    padding-right: 60px;
+  }
