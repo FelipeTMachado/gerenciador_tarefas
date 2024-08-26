@@ -1,11 +1,11 @@
 <?php
+    include('paginaInacessivel.php');
 
-include('paginaInacessivel.php');
+    if(!isset($_SESSION)) {
+        session_start();
+    }
 
-if(!isset($_SESSION)) {
-session_start();
-}
-
+    include '/var/www/html/principal/principal.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +20,5 @@ session_start();
     <h1>Usuario, <?php echo $_SESSION['nome']; ?></h1>
 
     <a href="logout.php">Logout</a>
-
-
-
 </body>
 </html>

@@ -33,4 +33,4 @@ CREATE TABLE tarefa (
 );
 
 INSERT INTO usuario VALUES (1, "Felipe Caue Machado", "fmachad6@gmail.com", "12345678");
-
+INSERT INTO usuario VALUES (2, "Yohanês da Silva Zanghelini", "yzanghelini@gmail.com", "87654321")

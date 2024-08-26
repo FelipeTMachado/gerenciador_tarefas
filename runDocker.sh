@@ -5,7 +5,7 @@ sudo docker build -t gerenciador-img .
 sudo docker-compose up -d
 
 echo "Espere alguns segundos para o mysql iniciar..."
-sleep 10
+sleep 15
 
 firefox localhost:8084
 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/var/www/html/principal/main.css">
+    <link rel="stylesheet" href="/principal/main.css">
     <title>Página inicial</title>
 </head>
 <body>
@@ -29,14 +29,14 @@
         <aside>
             <div class="topContent">
                 <h1 class="nomeLogado">Yohanês</h1>
-                <h2><a href="#">Logout</a></h2>
+                <h2><a href="/login/logout.php">Logout</a></h2>
             </div>
             <br>
             <ul class="quadrosAside">
                 <li class="active"><a href="#">nomeQuadro</a></li>
+                <!-- <li><a href="#">nomeQuadro</a></li>
                 <li><a href="#">nomeQuadro</a></li>
-                <li><a href="#">nomeQuadro</a></li>
-                <li><a href="#">nomeQuadro</a></li>
+                <li><a href="#">nomeQuadro</a></li> -->
             </ul>
         </aside>
         <main>
