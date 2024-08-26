@@ -31,6 +31,3 @@ CREATE TABLE tarefa (
     prazo DATE,
     FOREIGN KEY (lista_id) REFERENCES lista(id) ON DELETE CASCADE
 );
-
-INSERT INTO usuario VALUES (1, "Felipe Caue Machado", "fmachad6@gmail.com", "12345678");
-

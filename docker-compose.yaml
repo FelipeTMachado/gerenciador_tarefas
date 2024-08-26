@@ -1,0 +1,44 @@
+networks:
+  gerenciador-net:
+    name: gerenciador-net
+    driver: bridge
+
+services:
+  gerenciador-mysql:
+    image: mysql:8.0.37-debian
+
+    container_name:
+      gerenciador-mysql
+
+    networks:
+      - gerenciador-net
+
+    volumes:
+      - ./conf:/docker-entrypoint-initdb.d
+
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: gerenciadorTarefas
+
+    ports:
+      - 3307:3306
+  gerenciador-site:
+    depends_on:
+      - gerenciador-mysql
+
+    image:
+      gerenciador-img
+
+    container_name:
+      gerenciador-site
+
+    networks:
+      - gerenciador-net
+
+    ports:
+      - 8084:80
+
+
+    
+
+     

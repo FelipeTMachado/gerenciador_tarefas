@@ -1,5 +1,7 @@
 <?php
-include("./conexao.php");
+include("/var/www/html/login/conexao.php");
+
+$caminhoRelativo = "/login/";
 
 $wrongPassword = null;
 
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['nome'] = $usuario['nome'];
 
-            header("Location: painel.php");
+						header("Location: " . $caminhoRelativo . "painel.php");
             exit();
         } else {
             $wrongPassword = "Falha ao logar, E-mail ou senha incorretos";
@@ -42,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./modal.css">
+    <link rel="stylesheet" href="<?php echo $caminhoRelativo . 'style.css'; ?>">
+    <link rel="stylesheet" href="<?php echo $caminhoRelativo . 'modal.css'; ?>">
     <script>
         function showModal(message) {
             document.getElementById("modal-message").textContent = message;

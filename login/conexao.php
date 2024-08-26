@@ -1,9 +1,9 @@
 <?php
 
-$host = "localhost:3307"; 
+$host = "gerenciador-mysql:3306"; 
 $database = "gerenciadorTarefas";
 $user = "root";
-$pass = "1234";
+$pass = "senha";
 
 $mysqli = new mysqli($host, $user, $pass, $database);
 
