@@ -21,7 +21,7 @@ services:
       MYSQL_DATABASE: gerenciadorTarefas
 
     ports:
-      - 3307:3306
+      - 3308:3306
   gerenciador-site:
     depends_on:
       - gerenciador-mysql

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/principal/main.css">
     <title>Página inicial</title>
+    <script></script>
 </head>
 <body>
     <header>
@@ -284,5 +285,6 @@
         </main>
 
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/var/www/html/principal/main.css">
+    <link rel="stylesheet" href="./main.css">
     <title>Página inicial</title>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-              <li class="li">Novo quadro</li>
-              <li class="li">Nova lista</li>
+              <li class="li"><button id="showFormQuadro" onclick="showQuadroForm()">Novo Quadro</button></li>
+              <li class="li"><button id="showFormLista" onclick="showListaForm()">Nova Lista</button></li>
               <li class="nav-endItems">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,8 @@
             </ul>
           </nav>
     </header>
-    <div class="containerPrincipal">
+    <div id="overlay" class="overlay"></div>
+    <div id="containerPrincipal">
         <aside>
             <div class="topContent">
                 <h1 class="nomeLogado">Yohanês</h1>
@@ -42,7 +43,10 @@
         <main>
             <div class="containerMain">
             <div class="containerLista">
-                <p class="nomeLista">Trabalho</p>
+                <div class="topLista">
+                    <p class="nomeLista">Trabalho</p>
+                    <button id="showTarefaForm" onclick="showTarefaForm()">+</button>
+                </div>
                 <ul class="lista">
                     <li class="itemLista">
                         <ul class="tarefa">
@@ -282,7 +286,43 @@
             </div>
         </div>
         </main>
-
     </div>
+    <div id="quadroForm" style="display: none;" class="newForm">
+        <button onclick="closeForm()" id="btnClose">x</button>
+        <form action="/criarQuadro" method="POST">
+            <label for="nomeQuadro">Nome do Quadro:</label>
+            <input type="text" id="nomeQuadro" name="nomeQuadro" required>
+            <button type="submit" onclick="closeForm()">Criar Quadro</button>
+        </form>
+    </div>
+    
+    <div id="listaForm" style="display: none;" class="newForm">
+        <button onclick="closeForm()" id="btnClose">x</button>
+        <form action="/criarLista" method="POST">
+            <label for="nomeLista">Nome da Lista:</label>
+            <input type="text" id="nomeLista" name="nomeLista" required>
+            <button type="submit" onclick="closeForm()">Criar Lista</button>
+        </form>
+    </div>
+    
+    <div id="tarefaForm" style="display: none;" class="newForm">
+        <button onclick="closeForm()" id="btnClose">x</button>
+        <form action="/criarTarefa" method="POST" enctype="multipart/form-data">
+            <label for="nomeTarefa">Nome da Tarefa:</label>
+            <input type="text" id="nomeTarefa" name="nomeTarefa" required>
+    
+            <label for="descricaoTarefa">Descrição:</label>
+            <textarea id="descricaoTarefa" name="descricaoTarefa" required></textarea>
+    
+            <label for="arquivoTarefa">Arquivo:</label>
+            <input type="file" id="arquivoTarefa" name="arquivoTarefa">
+    
+            <label for="prazoTarefa">Prazo:</label>
+            <input type="date" id="prazoTarefa" name="prazoTarefa" required>
+    
+            <button type="submit" onclick="closeForm()">Criar Tarefa</button>
+        </form>
+    </div>
+    <script src="./index.js"></script>
 </body>
 </html>
