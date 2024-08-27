@@ -2,7 +2,7 @@
 session_start();
 include("/var/www/html/conexao.php");
 
-$caminhoRelativo = "/login/";
+// $caminhoRelativo = "/var/www/html/login/";
 $wrongPassword = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,17 +21,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         $sql_query = $stmt->get_result();
 
+        // var_dump($sql_query);
         if ($sql_query->num_rows == 1) {
             $usuario = $sql_query->fetch_assoc();
 
-            // Check hashed password
-            if (password_verify($senha, $usuario['senha'])) {
+            
+            if ($senha == $usuario['senha']) {
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['email'] = $usuario['email'];
                 $_SESSION['nome'] = $usuario['nome'];
 
-                header("Location: " . $caminhoRelativo . "painel.php");
-                exit();
+                
+                include("/var/www/html/login/painel.php");
+                exit(); 
             } else {
                 $wrongPassword = "Falha ao logar, E-mail ou senha incorretos";
             }
@@ -48,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="<?php echo $caminhoRelativo . 'style.css'; ?>">
-    <link rel="stylesheet" href="<?php echo $caminhoRelativo . 'modal.css'; ?>">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/modal.css">
     <script>
         function showModal(message) {
             document.getElementById("modal-message").textContent = message;
@@ -60,6 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             document.getElementById("myModal").style.display = "none";
         }
 
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     var wrongPassword = "<?php echo addslashes($wrongPassword); ?>";
+        //     if (wrongPassword) {
+        //         showModal(wrongPassword);
+        //     }
+        // });
+
+        
+
         document.addEventListener("DOMContentLoaded", function() {
             <?php if ($wrongPassword) { ?>
                 showModal('<?php echo addslashes($wrongPassword); ?>');
@@ -69,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="page">
-        <form action="index.php" method="POST" class="formLogin">
+        <form action="" method="POST" class="formLogin">
             <h1 class="title">Login</h1>
 
             <label for="email">E-mail:</label>

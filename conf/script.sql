@@ -1,4 +1,4 @@
-CREATE DATABASE gerenciadorTarefas;
+#CREATE DATABASE gerenciadorTarefas;
 USE gerenciadorTarefas;
 
 -- Criação da tabela de usuários
