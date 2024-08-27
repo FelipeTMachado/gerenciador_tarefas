@@ -1,8 +1,8 @@
 <?php
-include("/var/www/html/login/conexao.php");
+session_start();
+include("/var/www/html/conexao.php");
 
 $caminhoRelativo = "/login/";
-
 $wrongPassword = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -12,25 +12,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (empty($_POST['senha'])) {
         $wrongPassword = "Preencha sua senha!";
     } else {
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-        $sql_code = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        // Use prepared statements to prevent SQL injection
+        $stmt = $mysqli->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $sql_query = $stmt->get_result();
 
         if ($sql_query->num_rows == 1) {
             $usuario = $sql_query->fetch_assoc();
 
-            if (!isset($_SESSION)) {
-                session_start();
+            // Check hashed password
+            if (password_verify($senha, $usuario['senha'])) {
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['email'] = $usuario['email'];
+                $_SESSION['nome'] = $usuario['nome'];
+
+                header("Location: " . $caminhoRelativo . "painel.php");
+                exit();
+            } else {
+                $wrongPassword = "Falha ao logar, E-mail ou senha incorretos";
             }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['email'] = $usuario['email'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-						header("Location: " . $caminhoRelativo . "painel.php");
-            exit();
         } else {
             $wrongPassword = "Falha ao logar, E-mail ou senha incorretos";
         }
@@ -56,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             document.getElementById("myModal").style.display = "none";
         }
 
-        // Mostra o modal se a variável PHP indicar um erro após o envio do formulário
         document.addEventListener("DOMContentLoaded", function() {
             <?php if ($wrongPassword) { ?>
                 showModal('<?php echo addslashes($wrongPassword); ?>');

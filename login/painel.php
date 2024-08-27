@@ -5,7 +5,7 @@
         session_start();
     }
 
-    include '/var/www/html/principal/principal.php';
+    include '/var/www/html/principal.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-    <h1>Usuario, <?php echo $_SESSION['nome']; ?></h1>
-
-    <a href="logout.php">Logout</a>
-</body>
 </html>

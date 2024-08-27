@@ -203,7 +203,16 @@ input[type="checkbox"]:checked {
     text-decoration: underline;
 }
 
-.active {
+.quadro {
+    cursor: pointer;
+
+    & .active {
+        background-color: #ff7300;
+        border-radius: 5px;
+    }
+}
+
+.quadro.active {
     background-color: #ff7300;
     border-radius: 5px;
 }
@@ -344,5 +353,7 @@ header {
         background-color: #333;
     }
 }
+
+
 
 
