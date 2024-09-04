@@ -8,4 +8,3 @@ echo "Espere alguns segundos para o mysql iniciar..."
 
 firefox localhost:8084
 
-sudo docker exec -it 
